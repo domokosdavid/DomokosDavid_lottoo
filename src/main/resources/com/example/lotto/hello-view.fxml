@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="176.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lotto.HelloController">
+    <children>
+        <Button fx:id="btnSorsol" layoutX="37.0" layoutY="30.0" mnemonicParsing="false" onAction="#randomSorsol" prefHeight="40" prefWidth="80" text="Sorsol" />
+        <Label fx:id="labelRandom" layoutX="133.0" layoutY="25.0" prefHeight="50.0" prefWidth="87.0" text="">
+            <font>
+                <Font size="28.0" />
+            </font>
+        </Label>
+        <Label fx:id="labelLottoSzamok" layoutX="37.0" layoutY="80.0" prefHeight="59.0" prefWidth="316.0" text="">
+            <font>
+                <Font size="29.0" />
+            </font>
+        </Label>
+    </children>
+</Pane>
