@@ -23,7 +23,7 @@ public class HelloController {
     @FXML
     static Random random = new Random();
     @FXML
-    public ArrayList<Integer> sorsoltak = new ArrayList<>();
+    public ArrayList<Integer> sorsoltszamok = new ArrayList<>();
 
 
 
@@ -32,14 +32,14 @@ public class HelloController {
 
 
     public void randomSorsol(ActionEvent actionEvent) throws InterruptedException {
-        boolean ossz = sorsoltak.size() < 5;
+        boolean ossz = sorsoltszamok.size() < 5;
         if (ossz){
             TimeUnit.SECONDS.sleep(2);
             r = random.nextInt(90);
             labelRandom.setText(String.valueOf(r));
-            sorsoltak.add(r);
+            sorsoltszamok.add(r);
             labelLottoSzamok.setText(feltoltes());
-            if (sorsoltak.size() == 5){
+            if (sorsoltszamok.size() == 5){
                 btnSorsol.setText("Rendez");
             }
 
@@ -49,15 +49,29 @@ public class HelloController {
 
             labelLottoSzamok.setText(feltoltes());
             btnSorsol.setText("Sorsol");
-            sorsoltak.clear();
+            sorsoltszamok.clear();
         }
 
     }
+    private void rendezes(){
+        int szam = 0;
+        boolean rendezveE = true;
+        while (rendezveE){
+            rendezveE = false;
+            for (int i = 0; i < sorsoltszamok.size() - 1; i++){
+                szam = sorsoltszamok.get(i);
+                sorsoltszamok.set(i, sorsoltszamok.get(i+1));
+                sorsoltszamok.set(i+1, szam);
+            }
+        }
+    }
     private String feltoltes(){
         String feltoltottSzoveg = "";
-        for (int num : sorsoltak){
+        for (int num : sorsoltszamok){
             feltoltottSzoveg += String.valueOf(num) + " ";
         }
         return feltoltottSzoveg;
     }
+
+
 }
