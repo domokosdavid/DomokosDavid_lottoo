@@ -46,7 +46,7 @@ public class HelloController {
 
         }
         else {
-
+            rendezes();
             labelLottoSzamok.setText(feltoltes());
             btnSorsol.setText("Sorsol");
             sorsoltszamok.clear();
@@ -54,15 +54,18 @@ public class HelloController {
 
     }
     private void rendezes(){
-        int szam = 0;
+        int szam;
         boolean rendezveE = true;
         while (rendezveE){
             rendezveE = false;
             for (int i = 0; i < sorsoltszamok.size() - 1; i++){
-                szam = sorsoltszamok.get(i);
-                sorsoltszamok.set(i, sorsoltszamok.get(i+1));
-                sorsoltszamok.set(i+1, szam);
-                rendezveE = true;
+                if (sorsoltszamok.get(i) > sorsoltszamok.get(i+1)){
+                    szam = sorsoltszamok.get(i);
+                    sorsoltszamok.set(i, sorsoltszamok.get(i+1));
+                    sorsoltszamok.set(i+1, szam);
+                    rendezveE = true;
+                }
+
             }
         }
     }
