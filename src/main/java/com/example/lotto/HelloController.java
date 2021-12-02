@@ -34,6 +34,7 @@ public class HelloController {
     public void randomSorsol(ActionEvent actionEvent) throws InterruptedException {
         boolean ossz = sorsoltak.size() < 5;
         if (ossz){
+            TimeUnit.SECONDS.sleep(2);
             r = random.nextInt(90);
             labelRandom.setText(String.valueOf(r));
             sorsoltak.add(r);
