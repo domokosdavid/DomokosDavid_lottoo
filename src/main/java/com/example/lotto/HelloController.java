@@ -23,20 +23,40 @@ public class HelloController {
     @FXML
     static Random random = new Random();
     @FXML
-            private ArrayList<Integer> sorsoltak = new ArrayList<>();
+    public ArrayList<Integer> sorsoltak = new ArrayList<>();
 
 
 
-    int count = 0;
     int r = 0;
-    int r2 = 0;
-    int r3 = 0;
-    int r4 = 0;
-    int r5 = 0;
+
+
 
     public void randomSorsol(ActionEvent actionEvent) throws InterruptedException {
         boolean ossz = sorsoltak.size() < 5;
-        
+        if (ossz){
+            r = random.nextInt(90);
+            labelRandom.setText(String.valueOf(r));
+            sorsoltak.add(r);
+            labelLottoSzamok.setText(feltoltes());
+            if (sorsoltak.size() == 5){
+                btnSorsol.setText("Rendez");
+            }
 
+
+        }
+        else {
+
+            labelLottoSzamok.setText(feltoltes());
+            btnSorsol.setText("Sorsol");
+            sorsoltak.clear();
+        }
+
+    }
+    private String feltoltes(){
+        String feltoltottSzoveg = "";
+        for (int num : sorsoltak){
+            feltoltottSzoveg += String.valueOf(num) + " ";
+        }
+        return feltoltottSzoveg;
     }
 }
