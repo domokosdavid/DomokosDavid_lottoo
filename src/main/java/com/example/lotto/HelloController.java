@@ -62,6 +62,7 @@ public class HelloController {
                 szam = sorsoltszamok.get(i);
                 sorsoltszamok.set(i, sorsoltszamok.get(i+1));
                 sorsoltszamok.set(i+1, szam);
+                rendezveE = true;
             }
         }
     }
